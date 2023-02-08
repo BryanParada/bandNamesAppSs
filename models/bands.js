@@ -3,7 +3,7 @@
 
 class Bands{
 
-    constuctor(){
+    constructor(){
         this.bands = [];
     }
 
