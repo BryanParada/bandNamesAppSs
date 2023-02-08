@@ -28,7 +28,7 @@
         socket.emit('mensaje', {name: 'bry' })
 
         //escuchar al server
-        socket.on('mensaje', function(payload){
+        socket.on('nuevo-mensaje', function(payload){
             console.log('Escuchando al server: ', payload)
         })
         
