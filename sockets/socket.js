@@ -44,6 +44,15 @@ io.on('connection', client => {
 
      });
 
+     //Escuchar: add-band
+     client.on('add-band', (payload) =>{ 
+      const newBand = new Band( payload.name);
+      bands.addBand( newBand);
+      io.emit('active-bands', bands.getBands());
+      
+
+     });
+
 
 
   }); 
