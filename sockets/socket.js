@@ -48,9 +48,13 @@ io.on('connection', client => {
      client.on('add-band', (payload) =>{ 
       const newBand = new Band( payload.name);
       bands.addBand( newBand);
-      io.emit('active-bands', bands.getBands());
-      
+      io.emit('active-bands', bands.getBands()); 
+     });
 
+     //delete-band
+     client.on('delete-band', (payload) =>{  
+      bands.deleteBand( payload.id );
+      io.emit('active-bands', bands.getBands()); 
      });
 
 
