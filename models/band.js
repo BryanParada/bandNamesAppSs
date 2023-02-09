@@ -4,7 +4,7 @@ class Band {
 
     constructor( name = 'no-name'){
 
-        this.id = uuidV4; //identificador unico
+        this.id = uuidV4(); //identificador unico
         this.name = name;
         this.votes = 0;
 
