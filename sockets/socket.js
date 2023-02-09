@@ -27,12 +27,22 @@ io.on('connection', client => {
         io.emit( 'mensaje', { admin: 'New message from admin from server'});
      });
 
-     client.on('emitir-mensaje', (payload) =>{
-      //console.log(payload);
+   //   client.on('emitir-mensaje', (payload) =>{
+   //    //console.log(payload);
       
-      // io.emit('nuevo-mensaje', payload); //*EMITE A TODOS
-       client.broadcast.emit('nuevo-mensaje', payload); //* EMITE A TODOS MENOS EL QUE LO EMITIO
-     })
+   //    // io.emit('nuevo-mensaje', payload); //*EMITE A TODOS
+   //     client.broadcast.emit('nuevo-mensaje', payload); //* EMITE A TODOS MENOS EL QUE LO EMITIO
+   //   })
+
+     client.on('vote-band', (payload) =>{
+
+      // console.log(payload);
+      bands.voteBand( payload.id );
+      //recibir todos los cambios "IO" es el servidor
+      io.emit('active-bands', bands.getBands());
+      
+
+     });
 
 
 
